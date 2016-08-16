@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
 s.name             = "PanoramaGL"
-s.version          = "1.0.1"
+s.version          = "1.0.2"
 s.summary          = "PanoramaGL on iOS."
 s.description      = <<-DESC
 PanoramaGL for pods.
