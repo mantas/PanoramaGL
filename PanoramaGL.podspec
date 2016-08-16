@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
 s.name             = "PanoramaGL"
-s.version          = "1.0.0"
+s.version          = "1.0.1"
 s.summary          = "PanoramaGL on iOS."
 s.description      = <<-DESC
 PanoramaGL for pods.
@@ -26,8 +26,7 @@ s.platform     = :ios, '6.0'
 # s.osx.deployment_target = '10.7'
 s.requires_arc = false
 
-s.source_files = 'PanoramaGL/*'
-s.source_files = 'PanoramaGL/glues/*'
+s.source_files = 'PanoramaGL/*/*'
 # s.resources = 'Assets'
 
 # s.ios.exclude_files = 'Classes/osx'
