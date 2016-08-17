@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
 s.name             = "PanoramaGL"
-s.version          = "1.0.2"
+s.version          = "1.0.3"
 s.summary          = "PanoramaGL on iOS."
 s.description      = <<-DESC
 PanoramaGL for pods.
@@ -22,16 +22,16 @@ s.source           = { :git => "https://github.com/pclycx/PanoramaGL.git", :tag 
 # s.social_media_url = 'https://twitter.com/NAME'
 
 s.platform     = :ios, '6.0'
-# s.ios.deployment_target = '5.0'
+#s.ios.deployment_target = '7.0'
 # s.osx.deployment_target = '10.7'
 s.requires_arc = false
 
-s.source_files = 'PanoramaGL/*/*'
+s.source_files = 'PanoramaGL/glues/*','PanoramaGL/*'
 # s.resources = 'Assets'
 
 # s.ios.exclude_files = 'Classes/osx'
 # s.osx.exclude_files = 'Classes/ios'
 # s.public_header_files = 'Classes/**/*.h'
-#s.frameworks = 'Foundation', 'CoreGraphics', 'UIKit'
+s.frameworks = 'Foundation'
 
 end

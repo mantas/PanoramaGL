@@ -24,8 +24,8 @@
 #pragma mark -
 #pragma mark properties
 
-@property(nonatomic, readonly, getter=getTextures) PLTexture **textures;
-@property(nonatomic, readonly, getter=getPreviewTextures) PLTexture **previewTextures;
+@property(nonatomic, readonly, getter=getTextures) PLTexture *__autoreleasing *textures;
+@property(nonatomic, readonly, getter=getPreviewTextures) PLTexture *__autoreleasing *previewTextures;
 
 #pragma mark -
 #pragma mark property methods
