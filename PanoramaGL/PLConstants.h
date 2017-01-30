@@ -36,8 +36,8 @@
 #pragma mark -
 #pragma mark texture consts
 
-#define kTextureMaxWidth	2048
-#define kTextureMaxHeight	2048
+#define kTextureMaxWidth    4096
+#define kTextureMaxHeight   4096
 
 #pragma mark -
 #pragma mark cube consts
@@ -133,6 +133,7 @@
 #define kAccelerometerSensitivityMinValue	1.0f
 #define kAccelerometerSensitivityMaxValue	10.0f
 #define kAccelerometerMultiplyFactor		100.0f
+#define kAccelerometerMovementThreshold		0.1f
 
 #pragma mark -
 #pragma mark scrolling consts
@@ -175,4 +176,4 @@
 
 #define kDefaultHotspotSize			0.05f
 #define kDefaultHotspotAlpha		0.8f
-#define kDefaultHotspotOverAlpha	1.0f
+#define kDefaultHotspotOverAlpha	1.0f
