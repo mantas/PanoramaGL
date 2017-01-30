@@ -914,6 +914,11 @@
                 break;
 		}
 
+        if(fabs(x) < kAccelerometerMovementThreshold && fabs(y) < kAccelerometerMovementThreshold) {
+            x = 0;
+            y = 0;
+        }
+
 		endPoint = CGPointMake(startPoint.x + (x * factor), startPoint.y + (y * factor));
 		[self drawView];
 		
