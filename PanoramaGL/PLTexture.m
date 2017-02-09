@@ -162,20 +162,20 @@
 			return NO;
 		}
 					 
-		BOOL isResizableImage = NO;
-		if(![PLMath isPowerOfTwo:width] || width > kTextureMaxWidth)
-		{
-			isResizableImage = YES;
-			width = [self convertToValidValueForDimension:width];
-		}
-		if(![PLMath isPowerOfTwo:height] || height > kTextureMaxHeight)
-		{
-			isResizableImage = YES;
-			height = [self convertToValidValueForDimension:height];
-		}
+		//BOOL isResizableImage = NO;
+		//if(![PLMath isPowerOfTwo:width] || width > kTextureMaxWidth)
+		//{
+			//isResizableImage = YES;
+			//width = [self convertToValidValueForDimension:width];
+		//}
+		//if(![PLMath isPowerOfTwo:height] || height > kTextureMaxHeight)
+		//{
+			//isResizableImage = YES;
+			//height = [self convertToValidValueForDimension:height];
+		//}
 					 
-		if(isResizableImage)
-			[image scale:CGSizeMake(width, height)];
+		//if(isResizableImage)
+			//[image scale:CGSizeMake(width, height)];
 					 
 		glGenTextures(1, &textureID[0]);
 					 
