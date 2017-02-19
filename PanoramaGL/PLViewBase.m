@@ -718,15 +718,15 @@
 				BOOL isValidForMove = ([PLMath distanceBetweenPoints:startPoint :endPoint] <= minDistanceToEnableScrolling);
 				if(isInertiaEnabled)
 				{
-					[self stopOnlyAnimation];
+					[self stopAnimationInternally];
 					if(isValidForMove)
 						isValidForTouch = NO;
 					else
 					{
-						isNotCancelable = NO;
 						if(delegate && [delegate respondsToSelector:@selector(view:shouldBeginInertia:endPoint:)])
 							isNotCancelable = [delegate view:self shouldBeginInertia:startPoint endPoint:endPoint];
 						if(isNotCancelable)
+  						isNotCancelable = NO;
 							[self startInertia];
 					}
 				}
@@ -768,14 +768,10 @@
 -(void)startInertia
 {
 	[self stopInertia];
-	float interval = inertiaInterval / [PLMath distanceBetweenPoints:startPoint :endPoint];
-	if(interval < 0.01f)
-	{
-		inertiaStepValue = 0.01f / interval;
-		interval = 0.01f;
-	}
-	else
-		inertiaStepValue = 1.0f;
+	float interval = inertiaInterval / [PLMath distanceBetweenPoints:startPoint :endPoint] / 9;
+
+	inertiaStepValue = 0.01f / interval;
+  
 	inertiaTimer = [NSTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(inertia) userInfo:nil repeats:YES];
 	
 	if(delegate && [delegate respondsToSelector:@selector(view:didBeginInertia:endPoint:)])
@@ -833,7 +829,7 @@
 		x = (y - b)/m;
 	}
 	endPoint = CGPointMake(x, y);
-	[self drawView];
+	[self drawViewInternally];
 	
 	if(delegate && [delegate respondsToSelector:@selector(view:didRunInertia:endPoint:)])
 		[delegate view:self didRunInertia:startPoint endPoint:endPoint];
