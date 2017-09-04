@@ -40,6 +40,7 @@
 @property(nonatomic, getter=getRoll, setter=setRoll:) float roll;
 @property(nonatomic, assign) PLRange pitchRange, yawRange, rollRange;
 @property(nonatomic, assign) float rotateSensitivity;
+@property(nonatomic, assign) float scrollThreshold;
 
 @property(nonatomic, assign) float alpha, defaultAlpha;
 

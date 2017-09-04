@@ -29,7 +29,7 @@
 @synthesize pitchRange, yawRange, rollRange;
 @synthesize rotateSensitivity;
 
-@synthesize alpha, defaultAlpha;
+@synthesize alpha, defaultAlpha, scrollThreshold;
 
 #pragma mark -
 #pragma mark init methods
@@ -54,6 +54,8 @@
 	position = PLPositionMake(0.0f, 0.0f, 0.0f);
 	
 	defaultAlpha = kObjectDefaultAlpha;
+
+  scrollThreshold = kDefaultScrollThresholdNone;
 	
 	[self reset];
 }
@@ -191,8 +193,27 @@
 
 -(void)rotateWithStartPoint:(CGPoint)startPoint endPoint:(CGPoint)endPoint sensitivity:(float)sensitivity
 {
-	self.pitch += (endPoint.y - startPoint.y) / sensitivity;
-	self.yaw += (startPoint.x - endPoint.x) / sensitivity;
+//	self.pitch += (endPoint.y - startPoint.y) / sensitivity;
+//	self.yaw += (startPoint.x - endPoint.x) / sensitivity;
+
+  float pitchIncrease = [self scrollEnsureUnderThreshold: (endPoint.y - startPoint.y) / sensitivity];
+  float yawIncrease = [self scrollEnsureUnderThreshold: (startPoint.x - endPoint.x) / sensitivity];
+
+	self.pitch += pitchIncrease;
+	self.yaw += yawIncrease;
+}
+
+- (float)scrollEnsureUnderThreshold:(float)calculated
+{
+  if(scrollThreshold == kDefaultScrollThresholdNone) return calculated;
+
+  if(calculated > scrollThreshold) {
+    return scrollThreshold;
+  } else if(ABS(calculated) > scrollThreshold) {
+    return -scrollThreshold;
+  } else {
+    return calculated;
+  }
 }
 
 #pragma mark -

@@ -75,6 +75,8 @@
 #define kDefaultAnimationTimerIntervalByFrame	1.0f/30.f
 #define kDefaultAnimationFrameInterval			1
 
+#define kDefaultScrollThresholdNone     99999.0f
+
 #define kDefaultRotateMinRange -180.0f
 #define kDefaultRotateMaxRange  180.0f
 
@@ -176,4 +178,4 @@
 
 #define kDefaultHotspotSize			0.05f
 #define kDefaultHotspotAlpha		0.8f
-#define kDefaultHotspotOverAlpha	1.0f
+#define kDefaultHotspotOverAlpha	1.0f

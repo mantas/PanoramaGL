@@ -33,7 +33,7 @@
 	PLRange pitchRange, yawRange, rollRange;
 	float rotateSensitivity;
 	
-	float alpha, defaultAlpha;
+	float alpha, defaultAlpha, scrollThreshold;
 }
 
 @end
